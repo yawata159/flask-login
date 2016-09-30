@@ -2,15 +2,30 @@
 <html>
 
   <head>
-    <title>Forms</title>
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
   </head>
 
-  <body style="font-family: Sans-Serif">
-    <h2 align="center">A Form</h2>
+  <body background="../static/footer_lodyas.png">
+    <h2 align="center">Login</h2>
     <form action="/authenticate/" method="POST">
-      Username: <input type="text" name="user"><br>
-      Password: <input type="text" name="password"><br>
-      <input type="submit"><br>
+      <table align="center" style="border:none;">
+	<tr>
+	  <td>Username:</td>
+	  <td><input type="text" name="user"></td>
+	</tr>
+	<tr>
+	  <td>Password:</td>
+	  <td><input type="password" name="password"></td>
+	</tr>
+	<tr>
+	  <td colspan=2 align="center">
+	    <input type="submit">
+	  </td>
+	</tr>
+
+      </table>
+      
     </form>
   </body>
 

@@ -1,0 +1,25 @@
+body {
+    font-family: Sans-Serif;
+    color:#c1dff0
+}
+
+table {
+    border:none;
+}
+
+a {
+    text-decoration:none;
+}
+
+a:link {
+    color:#e9c46a
+}
+
+a:visited {
+    color:#b370b0
+}
+
+a:active, a:hover {
+    color:#f25f5c
+}
+

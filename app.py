@@ -9,14 +9,14 @@ def start():
 
 @app.route("/authenticate/", methods=["POST"])
 def auth():
-    uname = "fred"
-    passwd = "42"
+    user = "fred"
+    password = "42"
     if request.method == "POST":
-        if request.form["user"] == uname and request.form["password"] == passwd:
-            render_template("success.html")
-        else:
-            render_template("failure.html")
+        if request.form["user"] == user and request.form["password"] == password:
+            return render_template("response.html", success = True)
+        return render_template("response.html", success = False)
     else:
-        "You shouldn't see this"
+        "You shouldn't be here."
+        
 if __name__ == '__main__':
     app.run(debug = True)
