@@ -5,6 +5,11 @@ body {
 
 table {
     border:none;
+    table-layout:fixed;
+}
+
+input {
+    width:100%;
 }
 
 a {

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Message</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+  </head>
+  <body background="../static/footer_lodyas.png">
+
+    {% if success %}
+    <p align="center">You have successfully logged in!!!</p>    
+    {% endif %}
+
+    {% if wrong_user %}
+    <p align="center">That username is not registered (yet!)</p>
+    <hr>
+    <div style="text-align:center">
+      <a href="..">Go Back</a>
+    </div>
+    {% endif %}
+
+    {% if wrong_passwd %}
+    <p align="center">Wrong Password</p>
+    <hr>
+    <div style="text-align:center">
+      <a href="..">Go Back</a>
+    </div>
+
+    {% endif %}
+
+
+    
+  </body>
+  
+  
+</html>
