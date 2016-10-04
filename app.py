@@ -20,12 +20,12 @@ def auth():
     
     if request.method == "POST":
         if 'register' in request.form:
-            user_list = [row[0] for row in csv.reader(open("data/passwd.csv"))]
+            user_list = [row[0] for row in csv.reader(open("data/passwd.csv","r"))]
             
             if user in user_list:
                 return render_template("home.html", user_exists = True, user = user)
 
-            hashed_pw = sha512(password).hexdigest()
+            hashed_pw = sha512(password.encode("utf-8")).hexdigest()
             new_row = '"' + user + '","' + hashed_pw + '"\n'
 
             append_file = open("data/passwd.csv", "a")
@@ -36,9 +36,9 @@ def auth():
             
         if "login" in request.form:
 
-            user_pw_dict ={row[0]:row[1] for row in csv.reader(open("data/passwd.csv"))}
+            user_pw_dict ={row[0]:row[1] for row in csv.reader(open("data/passwd.csv", "r"))}
             if user in user_pw_dict:
-                hashed_pw = sha512(password).hexdigest()                
+                hashed_pw = sha512(password.encode("utf-8")).hexdigest()                
                 if hashed_pw == user_pw_dict[user]:
                     return render_template("loginattempt.html", success = True)
                 else:
