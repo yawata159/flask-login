@@ -41,7 +41,7 @@ def root():
 @app.route('/home/')
 def welcome():
     if 'user' in session:
-        return render_template('welcome.html')
+        return render_template('welcome.html', user = session['user'])
     else:
         return redirect(url_for('logregister'))
 
@@ -52,28 +52,31 @@ def logregister():
     else:
         return render_template('home.html')
 
-
 @app.route("/logout/", methods=["POST"])
 def logout():
     session.pop('user')
     return redirect(url_for('root'))
 
-@app.route("/authenticate/", methods=["POST"])
+@app.route("/authenticate/", methods=["POST", "GET"])
 def auth():
-    user = request.form["user"]
-    password = request.form["password"]
 
-    if user == "" or password == "":
-        return render_template("home.html", message = "Username and/or password fields can't be empty")
-    
-    if request.method == "POST":
+    if request.method == "GET":
+        return render_template("home.html")
+
+    elif request.method == "POST":
+        user = request.form["user"]
+        password = request.form["password"]
+        
+        if user == "" or password == "":
+            return render_template("home.html", message = "Username and/or password fields can't be empty")
+        
         if 'register' in request.form:
             return register(user,password)
                         
         if "login" in request.form:
             return login(user,password)
-    else:
+    else: 
         return render_template("home.html")
-        
+
 if __name__ == "__main__":
     app.run(debug = True)

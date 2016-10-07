@@ -6,7 +6,8 @@
   </head>
   
   <body background="../static/footer_lodyas.png">
-    <p align="center">Welcome to your homepage!</p>
+    <p align="center">Welcome to your homepage, {{ user }}.
+    </p>
     <form action="/logout/" method="POST">
       <div style="text-align:center;">
 	<input type="submit" value="Log Out">
