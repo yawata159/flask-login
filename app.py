@@ -62,7 +62,7 @@ def logout():
 def auth():
 
     if request.method == "GET":
-        return render_template("home.html")
+        return redirect(url_for("root"))
 
     elif request.method == "POST":
         user = request.form["user"]
