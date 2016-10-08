@@ -52,9 +52,10 @@ def logregister():
     else:
         return render_template('home.html')
 
-@app.route("/logout/", methods=["POST"])
+@app.route("/logout/", methods=["POST", "GET"])
 def logout():
-    session.pop('user')
+    if 'user' in session:
+        session.pop('user')
     return redirect(url_for('root'))
 
 @app.route("/authenticate/", methods=["POST", "GET"])
