@@ -1,6 +1,7 @@
 body {
-    font-family: Sans-Serif;
-    color:#c1dff0
+    font-family: "Open Sans", "Source Sans Pro", Sans-Serif;
+    font-size: 1.2em;
+    color:#c1dff0;	      
 }
 
 table {
@@ -10,6 +11,7 @@ table {
 
 input.cell {
     width:100%;
+    font-size: 0.9em;
 }
 
 a {
